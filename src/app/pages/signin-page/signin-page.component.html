@@ -24,10 +24,8 @@
         <div class="col-md-7 col-lg-6">
           <h1 class="block-lg-1 wow fadeInUp">Sign-in to Document Ledger</h1>
           <div class="card" style="max-width: 500px;">
-            <div class="card-heading p-2">
-              <button class="btn btn-light" [routerLink]="['/register']">Register</button> 
-              <button class="btn btn-light" [routerLink]="['/invite-code']" style="margin-left:20px;">I have an Invite Code</button>
-              <button class="btn btn-secondary" [routerLink]="['/login']" style="margin-left:20px;">Login</button>
+            <div class="card-heading p-2" style="text-align: left;">
+              <a style="color: blue!important;" [routerLink]="['/invite-code']" style="margin-left:20px;"><u style="color: blue!important;">I have an Invite/Activation Code</u></a>
             </div>
             <div class="card-body">
                      <div *ngIf="step=='1'" class="mb-3">
@@ -72,7 +70,7 @@
                      </div>
                      <button (click)="nextStep()" class="btn btn-primary">Next</button>
                      <button *ngIf="step=='2'" (click)="startOver()" class="btn btn-light" style="margin-left: 20px;">Start Over</button>
-
+                     <br>&nbsp;<br><a [routerLink]="['/register']"><u style="color:blue!important">Click Here to Register</u></a> 
             </div>
          </div>   
         </div>
