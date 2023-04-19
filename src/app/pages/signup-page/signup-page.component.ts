@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-signup-page',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterModule],
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.css']
 })
@@ -17,6 +22,8 @@ export class SignupPageComponent {
   middle_initial: any;
   phone_mobile: any;
   email: any;
+  step: any = '1';
+  error: any = '';
 
   constructor(private _dataService: DataService) { } 
 
@@ -36,10 +43,9 @@ export class SignupPageComponent {
 
     this._dataService.postRegister("post-register", formData).subscribe((data:any)=>{
       if (data?.error_code=="0") {
-        localStorage.setItem('uid',data.user.uid)
-        localStorage.setItem('role',data.user.role)
+        this.step='2';
       } else {      
-          alert('invalid email or password')
+          this.error=data.error_dsc;
       }
     });
   }

@@ -101,20 +101,22 @@ export class DataService {
     return this.t;
   }
 
-  post2FALogin(username: any, password: any) {
+  post2FALogin(uid: any, otp: any) {
     const data = {
       "q" : "login2FA",
-      "username": username,
-      "password": password
+      "uid": uid,
+      "otp": otp
     }
     console.log(data)
     this.t= this.http.post('https://protectivesecurity.org/api/auth.php', data);
     return this.t;
   }
 
-    postRegister(q: any, formData: any) {
+  postRegister(q: any, formData: any) {
+    this.getLocalStorage();
     const data = {
       "q" : q,
+      "uid": this.uid,
       "formData": formData
     }
     console.log(data)

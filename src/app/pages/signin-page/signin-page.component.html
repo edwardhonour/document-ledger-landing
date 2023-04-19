@@ -1,0 +1,81 @@
+<section class="section section-xxl position-relative context-dark" id="home" style="padding-top:100px;">
+    <div class="morph-bg"><img src="assets/images/bg-morph-1920x1050.png" alt="" width="1920" height="1050"/>
+    </div>
+    <div class="decor parallax-scene-js">
+      <div class="decor__element decor__element_1 d-none d-md-block">
+        <div class="layer" data-depth=".115"><img src="assets/images/decor-img-01-336x538.png" alt="" width="336" height="538"/>
+        </div>
+      </div>
+      <div class="decor__element decor__element_2 d-none d-md-block">
+        <div class="layer" data-depth="-.115"><img src="assets/images/decor-img-02-474x463.png" alt="" width="474" height="463"/>
+        </div>
+      </div>
+      <div class="decor__element decor__element_3 d-none d-lg-block">
+        <div class="layer" data-depth="-.2315"><img src="assets/images/decor-img-03-1184x894.png" alt="" width="1184" height="894"/>
+        </div>
+      </div>
+      <div class="decor__element decor__element_4 d-none d-lg-block">
+        <div class="layer" data-depth=".115"><img src="assets/images/decor-img-04-127x77.png" alt="" width="127" height="77"/>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row text-center text-md-left">
+        <div class="col-md-7 col-lg-6">
+          <h1 class="block-lg-1 wow fadeInUp">Sign-in to Document Ledger</h1>
+          <div class="card" style="max-width: 500px;">
+            <div class="card-heading p-2">
+              <button class="btn btn-light" [routerLink]="['/register']">Register</button> 
+              <button class="btn btn-light" [routerLink]="['/invite-code']" style="margin-left:20px;">I have an Invite Code</button>
+              <button class="btn btn-secondary" [routerLink]="['/login']" style="margin-left:20px;">Login</button>
+            </div>
+            <div class="card-body">
+                     <div *ngIf="step=='1'" class="mb-3">
+                       <div class="mb-1" style="text-align: left;">
+                        <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Email Address</p>
+                        <mat-form-field style="width:95%"  appearance="outline">
+                          <input matInput (keydown.enter)="nextStep()" [(ngModel)]="email" [type]="'text'" name="email">
+                      </mat-form-field>
+                      </div>
+                       <div id="emailHelp" [innerHTML]="error" class="form-text" style="color:red"></div>
+                     </div>
+                     <div *ngIf="step=='2'" class="mb-3">
+                     <div class="mb-1" style="text-align: left;">
+                        <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Password</p>
+                       <mat-form-field style="width:95%; color:black"  appearance="outline">
+                         <input [(ngModel)]="password" (keydown.enter)="nextStep()" style="width:95%; color:black" matInput [type]="showPassword ? 'text' : 'password'" name="password">
+                       <mat-icon style="width:30px;" matSuffix (click)="togglePasswordVisibility()">
+                          {{showPassword?'visibility_off':'visibility'}} 
+                       </mat-icon>  
+                     </mat-form-field>
+                     </div>
+                          <div id="emailHelp" [innerHTML]="error" class="form-text" style="color:red"></div>
+                     </div>
+                     <div *ngIf="step=='3'" class="mb-3">
+                        <div class="mb-1" style="text-align: left;">
+                            <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">OTP (Google Authenticator)</p>
+                            <mat-form-field style="width:95%"  appearance="outline">
+                              <input matInput [(ngModel)]="otp" (keydown.enter)="nextStep()" [type]="'text'" name="otp">
+                          </mat-form-field>
+                        </div>
+                     </div>
+                     <div *ngIf="step=='4'" class="mb-3">
+                         <h2>Ready for 2FA?</h2>
+                         <p>Download the Google Authenticator app and setup 2 Factor Authentication.</p>
+                         <p>Without 2 Factor Authentication you will not be able to digitally sign or upload documents.</p>
+                         <input type="text" class="form-control" id="exampleInputPassword1">
+                     </div>
+                     <div *ngIf="step=='4'" class="mb-3">
+                         <h2>Enter the next code displayed on Google Authenticator.</h2>
+                         <p>Wait for the next code to be displayed and then enter it to continue.  This will confirm that Google Authenticator was setup correclty.</p>
+                         <input type="text" class="form-control" id="exampleInputPassword1">
+                     </div>
+                     <button (click)="nextStep()" class="btn btn-primary">Next</button>
+                     <button *ngIf="step=='2'" (click)="startOver()" class="btn btn-light" style="margin-left: 20px;">Start Over</button>
+
+            </div>
+         </div>   
+        </div>
+      </div>
+    </div>
+    </section>

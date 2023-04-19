@@ -1,0 +1,90 @@
+<section class="section section-xxl position-relative context-dark" id="home" style="padding-top:100px;">
+    <div class="morph-bg"><img src="assets/images/bg-morph-1920x1050.png" alt="" width="1920" height="1050"/>
+    </div>
+    <div class="decor parallax-scene-js">
+      <div class="decor__element decor__element_1 d-none d-md-block">
+        <div class="layer" data-depth=".115"><img src="assets/images/decor-img-01-336x538.png" alt="" width="336" height="538"/>
+        </div>
+      </div>
+      <div class="decor__element decor__element_2 d-none d-md-block">
+        <div class="layer" data-depth="-.115"><img src="assets/images/decor-img-02-474x463.png" alt="" width="474" height="463"/>
+        </div>
+      </div>
+      <div class="decor__element decor__element_3 d-none d-lg-block">
+        <div class="layer" data-depth="-.2315"><img src="assets/images/decor-img-03-1184x894.png" alt="" width="1184" height="894"/>
+        </div>
+      </div>
+      <div class="decor__element decor__element_4 d-none d-lg-block">
+        <div class="layer" data-depth=".115"><img src="assets/images/decor-img-04-127x77.png" alt="" width="127" height="77"/>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="data.error==0" class="container">
+      <div class="row text-center text-md-left">
+        <div class="col-md-7 col-lg-6">
+          <h1 class="block-lg-1 wow fadeInUp">Activate your Account</h1>
+          <div class="card" style="max-width: 500px;">
+            <div class="card-body">
+              <div class="mb-1" style="text-align: left;">
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Email Address</p>
+                <mat-form-field style="width:95%"  appearance="outline">
+                  <input matInput [(ngModel)]="data?.formData.email" [type]="'text'" name="email">
+              </mat-form-field>
+              </div>
+              <div class="mb-1" style="text-align: left;">
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Mobile Phone (for 2FA Only)</p>
+                <mat-form-field style="width:95%"  appearance="outline">
+                  <input matInput [(ngModel)]="data?.formData.phone_mobile" [type]="'text'" name="email">
+              </mat-form-field>
+              </div>
+              <div class="mb-1" style="text-align: left;">
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Password</p>
+                <mat-form-field style="width:95%"  appearance="outline">
+                  <input matInput [(ngModel)]="data?.formData.password" [type]="'password'" name="email">
+              </mat-form-field>
+              </div>
+              <div class="mb-1" style="text-align: left;">
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Re-enter Password</p>
+                <mat-form-field style="width:95%"  appearance="outline">
+                  <input matInput [(ngModel)]="data?.formData.password2" [type]="'password'" name="email">
+              </mat-form-field>
+              </div>
+             <button (click)="postForm()" class="btn btn-primary">Actviate Account</button>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="data.error==1" class="container">
+      <div class="row text-center text-md-left">
+        <div class="col-md-7 col-lg-6">
+          <h1 class="block-lg-1 wow fadeInUp">Oops - Invalid Code</h1>
+          <div class="card" style="max-width: 500px;">
+            <div class="card-body">
+              <div class="mb-1" style="text-align: left;">
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">
+                  There is a problem with your activation code.  Your code should be 9 and is case sensitive.</p>
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">
+                  Please check with your Organization's administrator or the person who sent you the invitation.</p>
+              </div>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>    
+    <div *ngIf="data.error==2" class="container">
+      <div class="row text-center text-md-left">
+        <div class="col-md-7 col-lg-6">
+          <h1 class="block-lg-1 wow fadeInUp">Oops - Your Account is already Active</h1>
+          <div class="card" style="max-width: 500px;">
+            <div class="card-body">
+              <div class="mb-1" style="text-align: left;">
+                <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">
+                  Your account is already active.  If you need to reset your password choose the password reset link.</p>
+              </div>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>  
+    </section>
