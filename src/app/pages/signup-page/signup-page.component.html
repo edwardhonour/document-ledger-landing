@@ -1,0 +1,86 @@
+<div class="line-custom">
+    <div class="line-custom-container">
+      <div class="line-custom-item-base line-1"></div>
+      <div class="line-custom-item-sec line-2"></div>
+      <div class="line-custom-item-base line-3"></div>
+      <div class="line-custom-item-sec line-4"></div>
+    </div>
+  </div>
+  <header class="section page-header position-relative z-10">
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+        <div class="rd-navbar-main-outer">
+          <div class="rd-navbar-main">
+            <div class="rd-navbar-panel">
+              <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+              <div class="rd-navbar-brand" style="width: 340px; height: 58px;">
+                <a class="brand"  style="width: 340px; height: 58px;" href="index.html"><img class="brand-logo-dark" src="assets/images/logo-default-340x58.png" style="width: 340px!important; height: 58px !important;"/><img class="brand-logo-light" src="assets/images/logo-default-340x58.png" style="width: 340px !important; height: 58px !important;" /></a>
+              </div>
+            </div>
+            <div class="rd-navbar-main-element">
+              <div class="rd-navbar-nav-wrap">
+                <ul class="rd-navbar-nav">
+
+                </ul>
+                <div class="rd-navbar-link"><a class="button button-primary button-zakaria" href="#">Login / Signup</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+<section class="section section-xxl position-relative context-dark" id="home">
+<div class="morph-bg"><img src="assets/images/bg-morph-1920x1050.png" alt="" width="1920" height="1050"/>
+</div>
+<div class="decor parallax-scene-js">
+  <div class="decor__element decor__element_1 d-none d-md-block">
+    <div class="layer" data-depth=".115"><img src="assets/images/decor-img-01-336x538.png" alt="" width="336" height="538"/>
+    </div>
+  </div>
+  <div class="decor__element decor__element_2 d-none d-md-block">
+    <div class="layer" data-depth="-.115"><img src="assets/images/decor-img-02-474x463.png" alt="" width="474" height="463"/>
+    </div>
+  </div>
+  <div class="decor__element decor__element_3 d-none d-lg-block">
+    <div class="layer" data-depth="-.2315"><img src="assets/images/decor-img-03-1184x894.png" alt="" width="1184" height="894"/>
+    </div>
+  </div>
+  <div class="decor__element decor__element_4 d-none d-lg-block">
+    <div class="layer" data-depth=".115"><img src="assets/images/decor-img-04-127x77.png" alt="" width="127" height="77"/>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card" style="max-width: 500px;">
+    <div class="card-header">
+     <h2>Create an Account</h2>
+    </div>
+    <div class="card-body">
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Email address</label>
+       <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" aria-describedby="email">
+       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+     </div>
+     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">First Name</label>
+        <input type="text" name="first_name" [(ngModel)]="first_name" class="form-control" id="first_name">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">MI</label>
+        <input type="text" name="middle_initial" [(ngModel)]="middle_initial" class="form-control" id="middle_initial">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+        <input type="text" name="last_name" [(ngModel)]="last_name" class="form-control" id="last_name">
+    </div>
+     <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label">Mobile Phone</label>
+       <input type="text" name="phone_mobile" [(ngModel)]="phone_mobile" class="form-control" id="phone_mobile">
+       <div id="emailHelp" class="form-text">For 2 Factor Authentication Only.</div>       
+     </div>
+     <button (click)="postForm()" class="btn btn-primary">Next</button>
+    </div>
+ </div>
+</div>
+</section>
