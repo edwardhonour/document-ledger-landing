@@ -6,12 +6,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-signup-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterModule, MatOptionModule, MatRadioModule, MatSelectModule],
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.css']
 })
@@ -21,6 +24,9 @@ export class SignupPageComponent {
   last_name: any;
   middle_initial: any;
   phone_mobile: any;
+  personal: any = 'P';
+  existing: any = 'X';
+  org_name: any = '';
   email: any;
   step: any = '1';
   error: any = '';
@@ -36,9 +42,8 @@ export class SignupPageComponent {
     let formData: any = {
       email: this.email,
       first_name: this.first_name,
-      middle_initial: this.middle_initial,
-      last_name: this.last_name,
-      phone_mobile: this.phone_mobile 
+      personal: this.personal,
+      org_name: this.org_name
     }
 
     this._dataService.postRegister("post-register", formData).subscribe((data:any)=>{

@@ -25,8 +25,8 @@
       <h1 class="block-lg-1 wow fadeInUp">Let's get Started</h1>
       <div class="card" style="max-width: 500px;">
         <div class="card-heading p-2">
-          <button class="btn btn-light" [routerLink]="['/invite-code']" style="margin-left:20px;">I have an Invite Code</button>
-          <button class="btn btn-light" [routerLink]="['/login']" style="margin-left:20px;">Login</button>
+          <a [routerLink]="['/invite-code']" style="margin-left:20px;"><u>I have an Invite Code</u></a>
+          <a [routerLink]="['/login']" style="margin-left:20px;"><u>Login</u></a>
         </div>
         <div class="card-body">
           <div class="mb-1" style="text-align: left;">
@@ -41,13 +41,45 @@
               <input matInput [(ngModel)]="first_name" [type]="'text'" name="full_name">
             </mat-form-field>
           </div>
+          
           <div class="mb-1" style="text-align: left;">
+            <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Is this for personal or organizational use?</p>
+            <mat-radio-group [(ngModel)]="personal" aria-label="Select an option">
+              <mat-radio-button value="P">Personal Use</mat-radio-button>
+              <mat-radio-button value="O">For My Organization</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div *ngIf="personal=='O'" class="mb-1" style="text-align: left;">
+            <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Does your organization have an existing account?</p>
+            <mat-radio-group [(ngModel)]="existing" aria-label="Select an option">
+              <mat-radio-button value="Y">Yes</mat-radio-button>
+              <mat-radio-button value="N">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div *ngIf="personal=='O'&&existing=='Y'" class="mb-1" style="text-align: left;">
+            <p style="color: red; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">
+              <b>Please contact your account administrator for an invitation code.</b>
+              <a [routerLink]="['/invite-code']" style="margin-left:20px;"><u><span style="font-color:blue">I have an Invite Code</span></u></a>
+          </div>
+
+          <div *ngIf="personal=='O'&&existing=='N'" class="mb-1" style="text-align: left;">
+            <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Organization Name</p>
+            <mat-form-field style="width:95%"  appearance="outline">
+              <input matInput [(ngModel)]="org_name" [type]="'text'" name="org_name">
+            </mat-form-field>
+          </div>
+
+ <!--      <div class="mb-1" style="text-align: left;">
             <p style="color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';">Mobile Phone (for 2FA only)</p>
             <mat-form-field style="width:95%;"  appearance="outline">
               <input matInput [(ngModel)]="phone_mobile" [type]="'text'" name="full_name">
             </mat-form-field>
-          </div>
-         <button (click)="postForm()" class="btn btn-primary">Next</button>
+          </div>  -->
+          <div *ngIf="email!=''&&first_name!=''" class="mb-1" style="text-align: left;">
+              <button *ngIf="personal=='P'||org_name!=''" (click)="postForm()" class="btn btn-primary">Next</button>
+         </div>
         </div>
      </div>   
     </div>

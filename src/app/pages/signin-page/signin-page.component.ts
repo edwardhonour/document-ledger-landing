@@ -84,7 +84,7 @@ export class SigninPageComponent {
         localStorage.setItem('uid',this.uid)
         localStorage.setItem('role',this.role)
         localStorage.setItem('fa2','Y')
-//      location.replace('https://documentledger.org/app/index.html')
+        location.replace('https://documentledger.org/app/index.html')
       } else {      
         this.error="Invalid OTP - Please Try Again";
       }
